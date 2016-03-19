@@ -1,0 +1,59 @@
+.container {
+ margin: 30px auto;
+ width: 800px;
+
+}
+#employeeForm {
+  padding: 20px;
+}
+
+.container:first-child {
+  margin-top: 45px;
+}
+.employee {
+  padding-left: 30px;
+}
+
+.employee p {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+#employeeForm {
+  border: 3px solid #23c2a3;
+}
+
+
+.delete {
+  color: white;
+  border: 4px solid #911911;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #911911;
+}
+
+.employee-container {
+  margin-top: 30px;
+}
+
+.pure-table {
+  width: 800px;
+}
+
+.pure-table tbody {
+  counter-reset: rowNumber;
+}
+.pure-table tbody tr {
+    counter-increment: rowNumber;
+}
+
+.pure-table tbody tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
+
+.red {
+  background-color: #911;
+}

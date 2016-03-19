@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employees Total Pay App</title>
+    <link rel="stylesheet" href="vendors/pure-min.css"  />
+    <link rel="stylesheet" href="assets/styles/styles.css" />
+
+    <script type="text/javascript" src="vendors/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Total pay for all employees per month: $<span class="total-pay">0</span></h1>
+      <form id="employeeForm" class="pure-form pure-form-aligned">
+        <legend>Please enter new employee data:</legend>
+        <div class="pure-control-group">
+          <label for="firstname">First Name:</label>
+          <input  id="firstname" name="firstname" type="text" placeholder="Enter your first name" required>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="lastname">Last Name:</label>
+            <input  type="text" id="lastname" name="lastname" placeholder="Enter your last name" required/>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="employeeid">Employee ID:</label>
+            <input  type="number" id="employeeid" name="employeeid" placeholder="Employee ID number" required/>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="jobtitle">Job Title:</label>
+            <input  type="text" id="jobtitle" name="jobtitle" placeholder="Job title"/>
+        </div>
+
+        <div class="pure-control-group">
+            <label for="salary">Salary:</label>
+            <input  type="number" id="salary" name="salary" placeholder="Annual salary" required/>
+        </div>
+        <div class="pure-controls">
+            <input type="submit" value="Submit" class="pure-button pure-button-primary"/>
+        </div>
+      </form>
+
+      <div class="employee-container">
+        <table class="pure-table pure-table-horizontal pure-table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name   </th>
+                    <th>Last Name   </th>
+                    <th>Employee ID  </th>
+                    <th>Job Title    </th>
+                    <th>Annual Salary</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>
