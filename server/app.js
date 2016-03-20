@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var employees = require('./routes/employees.js');
 var pg = require('pg');
 
-var connectString = '';
+var connectString;
 
 if (process.env.DATABASE_URL){
   pg.defaults.ssl = true;
@@ -25,7 +25,7 @@ pg.connect(connectString, function(err, client, done){
       'employee_id integer NOT NULL,' +
       'job_title varchar(120),' +
       'salary integer NOT NULL,' +
-      'active BOOLEAN DEFAULT true);'
+      'status BOOLEAN DEFAULT true);'
     );
     query.on('end', function(){
       console.log('Successfully ensured schema exists');
