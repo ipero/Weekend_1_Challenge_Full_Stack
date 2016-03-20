@@ -22,10 +22,7 @@ function deactivateEmployee(event) {
     type: 'PUT',
     url: '/employees',
     data: {'employee_id': empID},
-    success: function(){
-      //highlight.toggleClass('red');
-      appendToDom();
-    }
+    success: appendToDom
   });
 
 }
@@ -64,6 +61,7 @@ function appendToDom(){
 }
 //add employee to DB
 function addEmployee(employee) {
+
   $.ajax({
     type: 'POST',
     url: '/employees',
@@ -74,6 +72,7 @@ function addEmployee(employee) {
 
 $(document).ready(function () {
     appendToDom();
+    $('.employee-container').on('click', '.pure-button', deactivateEmployee);
   $('#employeeForm').on('submit', function (event) {
     event.preventDefault();
     var employee = {};
@@ -93,7 +92,8 @@ $(document).ready(function () {
 
     addEmployee(employee);
 
+
   });
 
-  $('.container').on('click', '.pure-button', deactivateEmployee);
+
 });

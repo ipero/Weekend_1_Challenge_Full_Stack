@@ -28,6 +28,7 @@ employees.get('/', function(req,res){
         result.push(row);
       });
       query.on('end', function(){
+        done();
         res.send(result);
       });
       query.on('error', function(error){
@@ -53,10 +54,9 @@ employees.post('/', function(req, res){
       console.log('Error connecting to DB ', err);
       res.status(500).send(err);
     }else{
-
-      var query = client.query('INSERT INTO employees (first_name, last_name, '+
-      'employee_id, job_title, salary) VALUES ($1, $2, $3, $4, $5)' +
-      'RETURNING id, first_name', [firstName, lastName, empID, jobTitle, salary]);
+      var query = client.query('INSERT INTO employees (first_name, last_name,'+
+      'employee_id, job_title, salary) VALUES ($1, $2, $3, $4, $5) ' +
+      'RETURNING id, first_name' , [firstName, lastName, empID, jobTitle, salary]);
 
       query.on('end', function() {
         done();
