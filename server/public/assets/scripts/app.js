@@ -1,4 +1,8 @@
-var employeeList = [];
+$(document).ready(function () {
+    appendToDom();
+    $('.employee-container').on('click', '.pure-button', deactivateEmployee);
+    $('#employeeForm').on('submit', submitNewEmp);
+});
 
 // found function numberWithCommas on stackoverflow.com
 function numberWithCommas(x) {
@@ -12,7 +16,7 @@ function totalMonthlyPay(totalPay) {
   $('.total-pay').text(numberWithCommas(totalPay));
 }
 
-
+//deactivate employee status
 function deactivateEmployee(event) {
   event.preventDefault();
   // get empID
@@ -50,15 +54,13 @@ function appendToDom(){
             $el.append('<td><button class="pure-button pure-button-primary">On/Off</button></td>');
           }else{
           $el.append('<td><button class="pure-button pure-button-primary red">On/Off</button></td>');
-          }//$el.data('emplID', employee.employeeid);
-          //totalMonthlyPay();
+          }
         }
         totalMonthlyPay(totalPay);
     }
   });
-
-
 }
+
 //add employee to DB
 function addEmployee(employee) {
 
@@ -70,10 +72,8 @@ function addEmployee(employee) {
   });
 }
 
-$(document).ready(function () {
-    appendToDom();
-    $('.employee-container').on('click', '.pure-button', deactivateEmployee);
-  $('#employeeForm').on('submit', function (event) {
+// submit new employee Data from form
+function sumbitNewEmp(event) {
     event.preventDefault();
     var employee = {};
 
@@ -88,12 +88,6 @@ $(document).ready(function () {
     $('#employeeForm').find('input[type=number]').val('');
 
     $("#firstname").trigger("focus");
-    //employeeList.push(employee);
-
+    //now add employee to DB
     addEmployee(employee);
-
-
-  });
-
-
-});
+}

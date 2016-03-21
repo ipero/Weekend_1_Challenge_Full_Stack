@@ -5,11 +5,11 @@ var bodyParser = require('body-parser');
 var employees = require('./routes/employees.js');
 var pg = require('pg');
 
-var connectString;
+var connectString = '';
 
 if (process.env.DATABASE_URL){
   pg.defaults.ssl = true;
-  connectString = prosess.env.DATABASE_URL;
+  connectString = process.env.DATABASE_URL;
 }else{
   connectString = 'postgres://localhost:5432/Employees-Salary';
 }
