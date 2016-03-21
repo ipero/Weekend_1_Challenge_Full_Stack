@@ -73,7 +73,7 @@ function addEmployee(employee) {
 }
 
 // submit new employee Data from form
-function sumbitNewEmp(event) {
+function submitNewEmp(event) {
     event.preventDefault();
     var employee = {};
 
