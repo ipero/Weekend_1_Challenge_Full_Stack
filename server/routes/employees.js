@@ -22,7 +22,7 @@ employees.get('/', function(req,res){
       res.status(500).send(err);
     }else{
       var result = [];
-      var query = client.query('SELECT * FROM employees;');
+      var query = client.query('SELECT * FROM employees ORDER BY status DESC;');
 
       query.on('row', function(row){
         result.push(row);
